@@ -7,7 +7,7 @@ var TodoList = React.createClass({
     var renderTodos = () => {
       return (
         todos.map((todo) => {
-          return (<Todo key={todos.id} {...todo}/>);
+          return (<Todo key={todos.id} {...todo} todoToggle={this.props.todoToggle}/>);
         })
       );
     };
