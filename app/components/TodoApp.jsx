@@ -47,11 +47,12 @@ handleAddTodo: function(text){
   });
 },
   render: function(){
-    var {todos} = this.state;
+    var {todos, searchText, showCompleted} = this.state;
+    var filteredTodos = TodoAPI.filterTodos(todos, showCompleted, searchText);
     return (
       <div>
         <TodoSearch onSearch={this.handleSearch} />
-        <TodoList todos={todos} todoToggle={this.handleToggle}/>
+        <TodoList todos={filteredTodos} todoToggle={this.handleToggle}/>
         <AddTodo addTodo={this.handleAddTodo} />
       </div>
     );

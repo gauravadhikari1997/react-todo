@@ -10,7 +10,7 @@ describe('TodoAPI', () => {
     expect(TodoAPI).toBeTruthy();
   });
 
-  describe('setTodos()', () => {
+  describe('setTodos', () => {
     it('should set valid todos array', () => {
       var todos = [{
         id: 10,
@@ -31,7 +31,8 @@ describe('TodoAPI', () => {
       expect(localStorage.getItem('todos')).toBe(null);
     });
   });
-  describe('getTodos()', () => {
+
+  describe('getTodos', () => {
     it('should return empty array for no data', () => {
       expect(TodoAPI.getTodos()).toEqual([]);
     });
@@ -47,4 +48,48 @@ describe('TodoAPI', () => {
       expect(TodoAPI.getTodos()).toEqual(todos);
     });
   });
+
+  describe('filterTodos', () => {
+    var todos = [{
+      id: 10,
+      text: 'lon',
+      completed: false
+    },
+    {
+      id: 11,
+      text: 'mauker',
+      completed: true
+    },
+    {
+      id: 12,
+      text: 'mauked',
+      completed: false
+    }];
+
+    it('should return all todos for showCompleted true', () => {
+      var filteredTodos = TodoAPI.filterTodos(todos, true, '');
+      expect(filteredTodos.length).toBe(3);
+    });
+
+    it('should return todos for completed false', () => {
+      var filteredTodos = TodoAPI.filterTodos(todos, false, '');
+      expect(filteredTodos.length).toBe(2);
+    });
+
+    it('should sort by completed status', () => {
+      var filteredTodos = TodoAPI.filterTodos(todos, true, '');
+      expect(filteredTodos[0].completed).toBe(false);
+    });
+
+    it('should return all todos for empty searchText', () => {
+      var filteredTodos = TodoAPI.filterTodos(todos, true, '');
+      expect(filteredTodos.length).toBe(3);
+    });
+
+    it('should return searchText todos for given searchText', () => {
+      var filteredTodos = TodoAPI.filterTodos(todos, true, 'mau');
+      expect(filteredTodos.length).toBe(2);
+    });
+  });
+
 });
