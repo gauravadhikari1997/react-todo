@@ -1,1 +1,53 @@
 @import './base/variables';
+.page-title{
+  text-align: center;
+  padding-top: 2rem
+}
+.containers{
+  margin-left: 3rem;
+  margin-right: 3rem;
+  background: #fafafa;
+  border-radius: 5px;
+
+  label{
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  > :last-child{
+    align-items: center;
+  }
+  .containers__header{
+    padding: 1rem;
+  }
+  .containers__footer{
+    padding: 1rem 1rem 0 1rem;
+  }
+  .containers__message{
+    color: #aaa;
+    margin: 1rem auto;
+    text-align: center;
+  }
+}
+.todo{
+  cursor: pointer;
+  align-items: center;
+  padding: 1rem;
+  transition: background 0.3s ease;
+
+  p, input{
+    margin: 0;
+  }
+
+  > :first-child{
+    margin-right: 1rem;
+  }
+
+  &:hover{
+    background: #f0f0f0;
+  }
+  .todo-completed{
+    p, .todo-subtext{
+      text-decoration: line-through;
+    }
+  }
+}

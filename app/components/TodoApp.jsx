@@ -55,9 +55,14 @@ handleAddTodo: function(text){
     var filteredTodos = TodoAPI.filterTodos(todos, showCompleted, searchText);
     return (
       <div>
-        <TodoSearch onSearch={this.handleSearch} />
-        <TodoList todos={filteredTodos} todoToggle={this.handleToggle}/>
-        <AddTodo addTodo={this.handleAddTodo} />
+        <h1 className="page-title">Todo App</h1>
+
+            <div className="containers">
+            <TodoSearch onSearch={this.handleSearch} />
+            <TodoList todos={filteredTodos} todoToggle={this.handleToggle}/>
+            <AddTodo addTodo={this.handleAddTodo} />
+            </div>
+
       </div>
     );
   }
