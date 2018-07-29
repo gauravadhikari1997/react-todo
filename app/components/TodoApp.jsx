@@ -62,7 +62,9 @@ handleAddTodo: function(text){
             <TodoList todos={filteredTodos} todoToggle={this.handleToggle}/>
             <AddTodo addTodo={this.handleAddTodo} />
             </div>
-
+            <div className="footer">
+            <p> Try other useful web apps : <a href="https://guarded-stream-26983.herokuapp.com">WeatherApp</a> | <a href="https://peaceful-citadel-72871.herokuapp.com/">TimerApp</a></p>
+      </div>
       </div>
     );
   }
