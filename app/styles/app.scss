@@ -45,11 +45,11 @@
   &:hover{
     background: #f0f0f0;
   }
+}
   .todo-completed{
-    p, .todo-subtext{
+    p, .todo__subtext{
       text-decoration: line-through;
     }
-  }
 }
 .footer{
   padding-top: 3rem;
