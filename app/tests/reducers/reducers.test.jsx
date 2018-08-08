@@ -28,4 +28,35 @@ describe('Reducers', () => {
       expect(res).toEqual(true);
     });
   });
+
+  describe('todosReducer', () => {
+    it('should add todo', () => {
+      var action = {
+        type: 'ADD_TODO',
+        text: 'Do homework'
+      };
+
+      var res = reducers.todosReducer(df([]), df(action));
+
+      expect(res.length).toEqual(1);
+      expect(res[0].text).toEqual(action.text);
+    });
+
+    it('should flip todo completed status on toggle todo', () => {
+      var action = {
+        type: 'TOGGLE_TODO',
+        id: '123'
+      };
+
+      var res = reducers.todosReducer(df([{
+        id: '123',
+        text: 'text',
+        completed: true,
+        createdAt: 123,
+        completedAt: 125
+      }]), df(action));
+
+      expect(res[0].completedAt).toEqual(undefined);
+    });
+  });
 });
