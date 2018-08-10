@@ -26,7 +26,7 @@ export var todosReducer = (state = [], action) => {
         ...state,
         {
           id: uuid(),
-          text: action.text,
+          text: action.todo,
           completed: false,
           createdAt: moment().unix(),
           completedAt: undefined
@@ -35,11 +35,11 @@ export var todosReducer = (state = [], action) => {
     case 'TOGGLE_TODO':
       return state.map((todo) => {
         if (todo.id === action.id) {
-          var toggleCompleted = todo.completed;
+          var toggleCompleted = !todo.completed;
           return [
             ...todo,
             {
-              completed: !toggleCompleted,
+              completed: toggleCompleted,
               completedAt: toggleCompleted ? moment().unix() : undefined
             }
           ];
